@@ -1,0 +1,366 @@
+// --------------------------------------
+// 📱 RESPONSIVE
+// Все медиа-запросы для адаптива
+// --------------------------------------
+@use 'variables' as *;
+@media (min-width: 1200px) {
+  // .hero__col--image .hero__image {
+  //   height: 100%;
+  // }
+  .hero__col--image .hero__image {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 1029px) {
+  header {
+    position: relative;
+    z-index: 1000;
+    .header__wrap {
+      flex-wrap: wrap;
+    }
+    nav.menu {
+      z-index: 1001;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: $bg-color;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease;
+      &.active {
+        pointer-events: auto;
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+      // background: rgba(245, 245, 242, 0.92);
+      &.dropdown-menu.active {
+        position: relative;
+      }
+      .menu__list {
+        list-style: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1rem;
+      }
+    }
+    .burger {
+      display: block;
+    }
+    .search-form {
+      order: 0;
+      width: auto;
+      margin-top: 0.5rem;
+    }
+
+    .header-buttons {
+      margin-top: 0.5rem;
+      gap: 1rem;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .features__text {
+    h2 {
+      font-size: 36px;
+    }
+  }
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .locations__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .locations-anchor {
+    right: 40px;
+    top: 80px;
+    transform: scale(0.9);
+  }
+  .listings__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .how-it-works__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  // header nav ul {
+  //   display: none;
+  // }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+@media (max-width: 880px) {
+  .hero {
+    max-height: 720px;
+  }
+  .btn-find {
+    width: 100%;
+    max-width: 230px;
+  }
+}
+@media (max-width: 860px) {
+  .features__text p {
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+  .features__benefits {
+    margin: 10px 0;
+  }
+}
+@media (max-width: 780px) {
+  header {
+    .header__wrap {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo {
+      order: 0;
+      align-self: center;
+    }
+    .burger {
+      order: 1;
+      align-self: center;
+    }
+    .header-buttons {
+      order: 4;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .btn-find,
+    .btn-cart {
+      width: 100%;
+    }
+    .search-form {
+      order: 2;
+      align-self: center;
+      .search-input {
+        position: static;
+      }
+    }
+  }
+  .search__wrap {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .hero__wrap {
+    flex-direction: column;
+  }
+
+  .hero__col--image {
+    order: -1;
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .hero__image {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+  .cta-overlap {
+    margin-top: -80px;
+    &__inner {
+      padding: 40px 24px;
+    }
+    &__title {
+      font-size: 22px;
+    }
+  }
+  .benefit__icon {
+    margin: 0 auto;
+  }
+  .features__grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .features__text {
+    max-width: 540px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .features__benefits {
+    grid-template-columns: 1fr;
+  }
+  .partners__list {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .hero .hero__col--text {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .hero__title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .hero__text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 1.5rem;
+  }
+  .search__wrap {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .search__field {
+    max-width: 100%;
+  }
+  .btn-find {
+    width: 100%;
+  }
+  .hero__wrap {
+    grid-template-columns: 1fr;
+  }
+  .hero__col--image {
+    order: -1;
+  }
+  .locations__grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+  .reviews {
+    padding-top: 250px;
+  }
+  .locations {
+    padding-bottom: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews {
+    // padding: 80px 0;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .locations {
+    padding: 80px 0 100px;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .listings {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .how-it-works {
+    padding: 3rem 0;
+  }
+
+  .how-it-works__grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .locations {
+    padding-bottom: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-overlap {
+    margin-top: -60px;
+  }
+
+  .locations {
+    padding-bottom: 200px;
+  }
+
+  .testimonials {
+    padding-top: 120px;
+    margin-top: -60px;
+  }
+}
+@media (max-width: 413px) {
+  header {
+    .header__wrap {
+      padding: 0.5rem 1rem;
+    }
+
+    .header-buttons {
+      gap: 0.25rem;
+    }
+
+    .search-form {
+      margin-top: 0.25rem;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+    }
+  }
+  .hero .hero__wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero .hero__wrap .hero__col--image {
+    display: none;
+  }
+
+  .hero .hero__wrap .hero__col--text {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  .hero .hero__col--text .hero__title {
+    font-size: 35px;
+    line-height: 46px;
+  }
+}

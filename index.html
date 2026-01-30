@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Realco — Find houses for your family</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN (мы будем использовать его только в одной секции later) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Подключаем скомпилированный CSS (сборка style.scss -> css/style.css) -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+      <div class="container header__wrap">
+        <a href="#" class="logo" aria-label="Verenika homepage">Verenika</a>
+
+        <nav class="menu" aria-label="Main navigation">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a class="menu__link" href="#hero">Home</a>
+            </li>
+
+            <li class="menu__item menu__item--dropdown">
+              <a class="menu__link-prop" href="#properties"
+                >Properties
+                <img src="assets/img/arrow-menu.svg" class="arrow-icon" alt=""
+              /></a>
+              <ul class="dropdown-menu">
+                <li><a href="#family-houses">Houses for Family</a></li>
+                <li><a href="#popular-locations">Popular Locations</a></li>
+                <li><a href="#fast-process">Fast Process Homes</a></li>
+              </ul>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#about">About</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <form class="search-form" role="search">
+          <button type="button" class="search-toggle" aria-label="Open search">
+            <img src="assets/img/search.svg" alt="" />
+            Search
+          </button>
+          <input
+            type="search"
+            id="search"
+            class="search-input"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+        </form>
+
+        <div class="header-buttons">
+          <button class="btn-cart">
+            <img src="assets/img/shopping_bag.svg" alt="" />Cart
+          </button>
+          <div class="cart-dropdown">
+            <button class="checkout-btn">Checkout</button>
+          </div>
+          <button class="btn-find">Find a Property</button>
+        </div>
+
+        <button class="burger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+
+    <!--3section-->
+
+    <section class="features">
+      <div class="container">
+        <div class="features__grid">
+          <div class="features__text">
+            <span class="badge">Comfort first</span>
+            <h2>The best houses for family comfort</h2>
+            <p>
+              Ectus ipsum faucibus justo, et semper quam nisl in nibh. Proin
+              sollicitudin, lorem non posuere blandit.
+            </p>
+
+            <div class="features__actions">
+              <a href="#" class="btn btn-primary">Explore properties</a>
+              <a href="#" class="btn btn-link">Contact agent</a>
+            </div>
+          </div>
+
+          <div class="features__image">
+            <img src="assets/img/forward1.png" alt="" />
+          </div>
+
+          <div class="features__image">
+            <img src="assets/img/forward2.png" alt="" />
+          </div>
+
+          <div class="features__text">
+            <span class="badge">Quick and easy</span>
+            <h2>Fast forward process</h2>
+            <p>Ut vitae nisi eu nisi maximus condimentum ac id purus.</p>
+
+            <div class="features__benefits">
+              <div class="benefit">
+                <div class="benefit__icon">
+                  <img src="assets/img/price.svg" alt="" />
+                </div>
+                <h4 class="benefit__title">Affordable prices</h4>
+                <p class="benefit__text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros.
+                </p>
+              </div>
+
+              <div class="benefit">
+                <div class="benefit__icon">
+                  <img src="assets/img/paper.svg" alt="" />
+                </div>
+                <h4 class="benefit__title">Less paper work</h4>
+                <p class="benefit__text">
+                  Curabitur porta luctus semper donec eget lobortis leo ac
+                  finibus nisi.
+                </p>
+              </div>
+            </div>
+
+            <div class="features__actions">
+              <a href="#" class="btn btn-primary">Explore properties</a>
+              <a href="#" class="btn btn-link">Contact agent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!----4section--->
+
+    <section class="listings">
+      <div class="container">
+        <div class="listings__header">
+          <span class="badge">Properties</span>
+          <h2>Houses in your favorite area</h2>
+        </div>
+
+        <div class="listings__grid">
+          <article class="card">
+            <div class="card__image">
+              <img src="assets/img/house1.jpg" alt="" />
+            </div>
+
+            <div class="card__content">
+              <h3 class="card__title">Cozy studio in Los Angeles</h3>
+
+              <div class="card__price">$ 1,200.00 USD</div>
+
+              <div class="card__location">
+                <img src="assets/img/location.svg" alt="" />
+                <span>2263 Southlea, Los Angeles</span>
+              </div>
+
+              <div class="card__stats">
+                <div class="stat">
+                  <img src="assets/img/bed.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/bath.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/size.svg" alt="" />
+                  <span>840 sqft</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__image">
+              <img src="assets/img/house2.jpg" alt="" />
+            </div>
+
+            <div class="card__content">
+              <h3 class="card__title">Tiny home in San Diego</h3>
+
+              <div class="card__price">$ 740,000.00 USD</div>
+
+              <div class="card__location">
+                <img src="assets/img/location.svg" alt="" />
+                <span>2569 El Segundo, San Diego</span>
+              </div>
+
+              <div class="card__stats">
+                <div class="stat">
+                  <img src="assets/img/bed.svg" alt="" />
+                  <span>1</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/bath.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/size.svg" alt="" />
+                  <span>400 sqft</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__image">
+              <img src="assets/img/house3.jpg" alt="" />
+            </div>
+
+            <div class="card__content">
+              <h3 class="card__title">Crown house in New York</h3>
+
+              <div class="card__price">$ 980,000.00 USD</div>
+
+              <div class="card__location">
+                <img src="assets/img/location.svg" alt="" />
+                <span>4489 Smity Fielda, New York</span>
+              </div>
+
+              <div class="card__stats">
+                <div class="stat">
+                  <img src="assets/img/bed.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/bath.svg" alt="" />
+                  <span>4</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/size.svg" alt="" />
+                  <span>3200 sqft</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__image">
+              <img src="assets/img/house4.jpg" alt="" />
+            </div>
+
+            <div class="card__content">
+              <h3 class="card__title">Family house in Los Angeles</h3>
+
+              <div class="card__price">$ 4,200.00 USD</div>
+
+              <div class="card__location">
+                <img src="assets/img/location.svg" alt="" />
+                <span>2263 Southlea, Los Angeles</span>
+              </div>
+
+              <div class="card__stats">
+                <div class="stat">
+                  <img src="assets/img/bed.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/bath.svg" alt="" />
+                  <span>3</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/size.svg" alt="" />
+                  <span>1400 sqft</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__image">
+              <img src="assets/img/house5.jpg" alt="" />
+            </div>
+
+            <div class="card__content">
+              <h3 class="card__title">Studio in Las Vegas</h3>
+
+              <div class="card__price">$ 820,000.00 USD</div>
+
+              <div class="card__location">
+                <img src="assets/img/location.svg" alt="" />
+                <span>2569 Halls Corner, Las Vegas</span>
+              </div>
+
+              <div class="card__stats">
+                <div class="stat">
+                  <img src="assets/img/bed.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/bath.svg" alt="" />
+                  <span>3</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/size.svg" alt="" />
+                  <span>2400 sqft</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__image">
+              <img src="assets/img/house6.jpg" alt="" />
+            </div>
+
+            <div class="card__content">
+              <h3 class="card__title">San Diego story</h3>
+
+              <div class="card__price">$ 3,700.00 USD</div>
+
+              <div class="card__location">
+                <img src="assets/img/location.svg" alt="" />
+                <span>2569 El Segundo, San Diego</span>
+              </div>
+
+              <div class="card__stats">
+                <div class="stat">
+                  <img src="assets/img/bed.svg" alt="" />
+                  <span>1</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/bath.svg" alt="" />
+                  <span>2</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/img/size.svg" alt="" />
+                  <span>650 sqft</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="listings__actions">
+          <a href="#" class="btn btn-primary">Explore properties</a>
+          <a href="#" class="btn btn-link">Contact agent</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Locations Section ===== -->
+    <section class="locations">
+      <div class="container">
+        <h2 class="locations__title">Locations</h2>
+        <p class="locations__subtitle">
+          Nunc mi ante, fringilla eget iaculis et, maximus vel purus integer
+          lacus urna, aliquet non nisl sit amet.
+        </p>
+
+        <div class="locations__grid">
+          <article class="location-card">
+            <h3>San Francisco, CA</h3>
+            <a href="#">View Properties </a>
+          </article>
+
+          <article class="location-card">
+            <h3>Los Angeles, CA</h3>
+            <a href="#">View Properties </a>
+          </article>
+
+          <article class="location-card">
+            <h3>San Diego, CA</h3>
+            <a href="#">View Properties </a>
+          </article>
+
+          <article class="location-card">
+            <h3>New York, NY</h3>
+            <a href="#">View Properties </a>
+          </article>
+
+          <article class="location-card">
+            <h3>Las Vegas, NV</h3>
+            <a href="#">View Properties </a>
+          </article>
+
+          <article class="location-card">
+            <h3>Miami, FL</h3>
+            <a href="#">View Properties </a>
+          </article>
+        </div>
+
+        <div class="locations__actions">
+          <a href="#" class="btn btn-primary">Explore properties</a>
+          <a href="#" class="btn btn-link">Contact agent</a>
+        </div>
+      </div>
+
+      <div class="cta-overlap">
+        <div class="cta-overlap__inner">
+          <div class="cta-overlap__icon">
+            <img src="assets/img/home.svg" alt="Home icon" />
+          </div>
+          <h2 class="cta-overlap__title">Families are our priority</h2>
+          <p class="cta-overlap__text">
+            Curabitur eget aliquam elit. In mauris purus, auctor a eleifend non,
+            placerat vel arcu. In non consectetur lorem.
+          </p>
+          <button class="btn btn__primary">Get started</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <div class="reviews__container">
+        <header class="reviews__header">
+          <h2 class="reviews__title">What customers say</h2>
+          <p class="reviews__subtitle">
+            Faucibus orci luctus et ultrices posuere cubilia curae.
+          </p>
+        </header>
+
+        <div class="reviews__grid">
+          <article class="review-card">
+            <div class="review-card__stars">
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+            </div>
+
+            <p class="review-card__text">
+              "Aliquam erat volutpat. Nulla pretium nec urna et convallis. Ut
+              varius mi lacus, nec molestie libero ultricies nec. Aenean lacinia
+              dui elit, ut gravida quam."
+            </p>
+
+            <div class="review-card__author">
+              <img src="assets/img/user-1.jpg" alt="Michael Webb" />
+              <div>
+                <strong>Michael Webb</strong>
+                <span>Customer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars">
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+            </div>
+
+            <p class="review-card__text">
+              "Class aptent taciti sociosqu ad litora torquent per conubia
+              nostra, per inceptos himenaeos. Morbi pretium iaculis ultricies.
+              Aenean in leo vitae tortor."
+            </p>
+
+            <div class="review-card__author">
+              <img src="assets/img/user-2.jpg" alt="Robert Keene" />
+              <div>
+                <strong>Robert Keene</strong>
+                <span>Customer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__stars">
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+            </div>
+
+            <p class="review-card__text">
+              "Condimentum viverra orci. Pellentesque suscipit odio nisl, non
+              ultricies purus mattis eget. In placerat, lorem a sodales
+              ullamcorper, eros nibh laoreet nisl."
+            </p>
+
+            <div class="review-card__author">
+              <img src="assets/img/user-3.jpg" alt="Sarah Tarleton" />
+              <div>
+                <strong>Sarah Tarleton</strong>
+                <span>Customer</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overlay общий для модальных окон -->
+    <div class="modal-overlay"></div>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal modal-cart">
+      <h3>Your Cart</h3>
+      <ul>
+        <li>Item 1 - $100</li>
+        <li>Item 2 - $50</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </div>
+
+    <!-- Модальное окно Find a Property -->
+    <div class="modal modal-find">
+      <h3>Find a Property</h3>
+      <form>
+        <input type="text" id="city" name="city" placeholder="City" />
+        <input type="number" id="price" name="price" placeholder="Price from" />
+        <input
+          type="number"
+          id="priceto"
+          name="priceto"
+          placeholder="Price to"
+        />
+        <button type="submit">Search</button>
+      </form>
+      <button class="close-modal">Close</button>
+    </div>
+
+    <!-- ===== PLACEHOLDERS: дальше будут другие секции по твоему макету ===== -->
+    <!-- Мы будем добавлять sections: How it works, Featured properties, Locations, Testimonials (Tailwind), Blog, Footer -->
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
