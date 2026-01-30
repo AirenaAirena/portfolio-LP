@@ -95,6 +95,43 @@
   .how-it-works__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .blog {
+    padding: 72px 0;
+
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    &__title {
+      font-size: 40px;
+      line-height: 48px;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 100%;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .post-card {
+    &__image {
+      height: 220px;
+    }
+
+    &__title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
 }
 
 @media (max-width: 992px) {
@@ -257,6 +294,57 @@
   .locations {
     padding-bottom: 250px;
   }
+
+  .blog {
+    padding: 56px 0;
+
+    &__label {
+      font-size: 12px;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    &__description {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .post-card {
+    &__image {
+      height: 200px;
+    }
+
+    &__body {
+      padding: 20px;
+    }
+
+    &__title {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    &__text {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    &__link {
+      font-size: 15px;
+    }
+  }
+
+  .btn--outline {
+    align-self: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
@@ -272,7 +360,7 @@
     }
   }
   .locations {
-    padding: 80px 0 100px;
+    padding: 10px 0 100px;
 
     &__grid {
       grid-template-columns: 1fr;
@@ -284,6 +372,7 @@
     }
   }
   .listings {
+    padding-bottom: 30px;
     &__grid {
       grid-template-columns: 1fr;
     }
