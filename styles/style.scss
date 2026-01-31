@@ -425,11 +425,10 @@ a {
 // HERO SECTION
 .hero {
   min-height: 720px;
-  // padding: 10px;
+
   .hero__wrap {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    // min-height: 520px;
     height: 100%;
   }
   .hero__col--text {
@@ -455,7 +454,7 @@ a {
     .herro__eyebrow-text {
       font-size: 14px;
       font-weight: 400;
-      letter-spacing: 0.05em;
+      line-height: 21px;
     }
 
     .hero__title {
@@ -476,8 +475,6 @@ a {
     }
   }
   .hero__col--image {
-    // position: relative;
-    // overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -531,9 +528,7 @@ a {
 .partners {
   padding: 3rem 0;
   background: #fff;
-  // .container {
-  //   @include container;
-  // }
+
   &__row {
     display: flex;
     align-items: center;
@@ -642,7 +637,7 @@ a {
   }
 
   p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #666;
     line-height: 1.5;
   }

@@ -406,7 +406,7 @@ a.menu__link-prop {
 .hero .hero__col--text .herro__eyebrow-text {
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.05em;
+  line-height: 21px;
 }
 .hero .hero__col--text .hero__title {
   font-size: clamp(2rem, 2vw, 3rem);
@@ -566,7 +566,7 @@ a.menu__link-prop {
   color: #2a2c1f;
 }
 .how-card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #666;
   line-height: 1.5;
 }
@@ -1190,7 +1190,7 @@ a.btn-primary::after {
 @media (min-width: 1200px) {
   .hero__col--image .hero__image {
     width: 100%;
-    height: auto;
+    min-height: auto;
   }
 }
 @media (max-width: 1029px) {

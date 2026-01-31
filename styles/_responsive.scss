@@ -9,7 +9,7 @@
   // }
   .hero__col--image .hero__image {
     width: 100%;
-    height: auto;
+    min-height: auto;
   }
 }
 @media (max-width: 1029px) {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Realco — Find houses for your family</title>
+    <title>Verenika — Find houses for your family</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,10 +12,6 @@
       rel="stylesheet"
     />
 
-    <!-- Tailwind CDN (мы будем использовать его только в одной секции later) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Подключаем скомпилированный CSS (сборка style.scss -> css/style.css) -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -84,6 +80,123 @@
     </header>
 
     <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero__wrap">
+        <div class="hero__col hero__col--text">
+          <div class="hero__eyebrow">
+            <span class="herro__eyebrow-text">Find your dream place</span>
+          </div>
+
+          <h1 class="hero__title">Find house for your family in minutes</h1>
+
+          <p class="hero__text">
+            Aenean sodales mauris quis tellus facilisis, vel mattis magna.
+            Interdum curabitur eget aliquam elit in mauris.
+          </p>
+
+          <div class="search__wrap">
+            <div class="search__field">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 21L15.8 15.8M18 11C18 14.866 14.866 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11Z"
+                  stroke="#65665c"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <input type="text" class="search__input" placeholder="Search" />
+            </div>
+
+            <button class="btn-find">Find property</button>
+          </div>
+        </div>
+
+        <div class="hero__col hero__col--image">
+          <img
+            src="assets/img/home-section1.png"
+            alt="Modern living room interior"
+            class="hero__image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="container">
+        <div class="partners__row">
+          <div class="partners__label">
+            As seen on the world's best magazines and media
+          </div>
+
+          <ul class="partners__list">
+            <li><img src="assets/img/ipsum1.svg" alt="Logo 1" /></li>
+            <li><img src="assets/img/ipsum2.svg" alt="Logo 2" /></li>
+            <li><img src="assets/img/ipsum3.svg" alt="Logo 3" /></li>
+            <li><img src="assets/img/ipsum4.svg" alt="Logo 4" /></li>
+            <li><img src="assets/img/ipsum5.svg" alt="Logo 5" /></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!------2section-->
+    <section class="how-it-works">
+      <div class="container">
+        <div class="how-it-works__header">
+          <h2>How it works</h2>
+          <p>
+            Nunc laoreet consequat nunc at consequat. Praesent aliquam mi id
+            efficitur pellentesque. Maecenas varius felis felis.
+          </p>
+        </div>
+
+        <div class="how-it-works__grid">
+          <!-- Card 1 -->
+          <div class="how-card">
+            <div class="how-card__icon how-card__icon--home">
+              <img src="assets/img/home1.svg" alt="" />
+            </div>
+            <h3>Find property</h3>
+            <p>
+              Odales mauris quis tellus facilisis, vel mattis magna interdum.
+              Curabitur eget aliquam elit. In mauris purus, auctor a eleifend
+              non.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="how-card">
+            <div class="how-card__icon how-card__icon--deal">
+              <img src="assets/img/paper.svg" alt="" />
+            </div>
+            <h3>Make a deal</h3>
+            <p>
+              Pellentesque suscipit mauris. Nam dictum, erat a volutpat varius,
+              urna nisi sollicitudin orci, sagittis facilisis odio tortor ac mi.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="how-card">
+            <div class="how-card__icon how-card__icon--keys">
+              <img src="assets/img/key.svg" alt="" />
+            </div>
+            <h3>Get your keys</h3>
+            <p>
+              Nulla vel bibendum purus. Etiam tempus quam vel pulvinar rutrum.
+              Duis semper, metus vitae fermentum consequat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!--3section-->
 
@@ -655,10 +768,9 @@
       </div>
     </div>
 
-    <!-- Overlay общий для модальных окон -->
+    <!-- Overlay MODAL WINDOWS -->
     <div class="modal-overlay"></div>
 
-    <!-- Модальное окно корзины -->
     <div class="modal modal-cart">
       <h3>Your Cart</h3>
       <ul>
@@ -668,7 +780,6 @@
       <button class="close-modal">Close</button>
     </div>
 
-    <!-- Модальное окно Find a Property -->
     <div class="modal modal-find">
       <h3>Find a Property</h3>
       <form>
@@ -684,9 +795,6 @@
       </form>
       <button class="close-modal">Close</button>
     </div>
-
-    <!-- ===== PLACEHOLDERS: дальше будут другие секции по твоему макету ===== -->
-    <!-- Мы будем добавлять sections: How it works, Featured properties, Locations, Testimonials (Tailwind), Blog, Footer -->
 
     <script src="js/main.js"></script>
   </body>
