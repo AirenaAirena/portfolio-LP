@@ -17,7 +17,7 @@
 
   <body>
     <!-- ===== HEADER ===== -->
-    <header class="header">
+    <header class="header" id="hero">
       <div class="container header__wrap">
         <a href="#" class="logo" aria-label="Verenika homepage">Verenika</a>
 
@@ -80,7 +80,7 @@
     </header>
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero__wrap">
         <div class="hero__col hero__col--text">
           <div class="hero__eyebrow">
@@ -147,7 +147,7 @@
       </div>
     </section>
     <!------2section-->
-    <section class="how-it-works">
+    <section class="how-it-works" id="about">
       <div class="container">
         <div class="how-it-works__header">
           <h2>How it works</h2>
@@ -200,7 +200,7 @@
 
     <!--3section-->
 
-    <section class="features">
+    <section class="features" id="family-houses">
       <div class="container">
         <div class="features__grid">
           <div class="features__text">
@@ -221,7 +221,7 @@
             <img src="assets/img/forward1.png" alt="" />
           </div>
 
-          <div class="features__image">
+          <div class="features__image" id="fast-process">
             <img src="assets/img/forward2.png" alt="" />
           </div>
 
@@ -265,7 +265,7 @@
 
     <!----4section--->
 
-    <section class="listings">
+    <section class="listings" id="properties">
       <div class="container">
         <div class="listings__header">
           <span class="badge">Properties</span>
@@ -273,7 +273,12 @@
         </div>
 
         <div class="listings__grid">
-          <article class="card">
+          <article
+            class="card"
+            data-id="house-1"
+            data-description="A bright and cozy studio apartment located in the heart of Los Angeles. Perfect for young professionals or couples."
+            data-images="assets/img/house1.jpg,assets/img/house2.jpg,assets/img/house3.jpg"
+          >
             <div class="card__image">
               <img src="assets/img/house1.jpg" alt="" />
             </div>
@@ -304,7 +309,13 @@
               </div>
             </div>
           </article>
-          <article class="card">
+          <article
+            class="card"
+            data-id="house-2"
+            data-description="Spacious studio featuring minimalist design, fully equipped kitchen, comfortable living area, and a private balcony overlooking the bustling streets.
+"
+            data-images="assets/img/house2.jpg,assets/img/house3.jpg,assets/img/house4.jpg"
+          >
             <div class="card__image">
               <img src="assets/img/house2.jpg" alt="" />
             </div>
@@ -335,7 +346,14 @@
               </div>
             </div>
           </article>
-          <article class="card">
+          <article
+            class="card"
+            data-id="house-3"
+            data-description="Elegant two-bedroom flat with hardwood floors, contemporary furniture, large windows for natural light, open-plan kitchen, and a charming terrace perfect for relaxing evenings.
+
+"
+            data-images="assets/img/house3.jpg,assets/img/house4.jpg,assets/img/house5.jpg"
+          >
             <div class="card__image">
               <img src="assets/img/house3.jpg" alt="" />
             </div>
@@ -366,7 +384,12 @@
               </div>
             </div>
           </article>
-          <article class="card">
+          <article
+            class="card"
+            data-id="house-4"
+            data-description="Modern loft with exposed brick walls, high ceilings, stylish décor, a comfortable lounge, and panoramic city views ideal for entertaining guests."
+            data-images="assets/img/house4.jpg,assets/img/house5.jpg,assets/img/house6.jpg"
+          >
             <div class="card__image">
               <img src="assets/img/house4.jpg" alt="" />
             </div>
@@ -397,7 +420,12 @@
               </div>
             </div>
           </article>
-          <article class="card">
+          <article
+            class="card"
+            data-id="house-5"
+            data-description="Bright and airy three-bedroom apartment located in a quiet neighborhood, featuring a spacious living area, fully equipped kitchen, luxurious bathroom, and a balcony with scenic cityscape views."
+            data-images="assets/img/house5.jpg,assets/img/house6.jpg,assets/img/house1.jpg"
+          >
             <div class="card__image">
               <img src="assets/img/house5.jpg" alt="" />
             </div>
@@ -428,7 +456,12 @@
               </div>
             </div>
           </article>
-          <article class="card">
+          <article
+            class="card"
+            data-id="house-6"
+            data-description=" luxurious penthouse with panoramic city views, modern furnishings, spacious living areas, a fully equipped kitchen, elegant bedrooms, stylish bathrooms, and a private terrace perfect for relaxing or entertaining guests."
+            data-images="assets/img/house6.jpg,assets/img/house1.jpg,assets/img/house2.jpg"
+          >
             <div class="card__image">
               <img src="assets/img/house6.jpg" alt="" />
             </div>
@@ -469,7 +502,7 @@
     </section>
 
     <!-- ===== Locations Section ===== -->
-    <section class="locations">
+    <section class="locations" id="popular-locations">
       <div class="container">
         <h2 class="locations__title">Locations</h2>
         <p class="locations__subtitle">
@@ -615,7 +648,7 @@
       </div>
     </section>
 
-    <section class="blog">
+    <section class="blog" id="blog">
       <div class="container">
         <div class="blog__header">
           <div class="blog__text">
@@ -685,7 +718,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="contact">
       <div class="container">
         <div class="footer__grid">
           <div class="footer__brand">
@@ -697,11 +730,11 @@
               <li><a href="#">Pages</a></li>
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="#blog">Blog</a></li>
               <li><a href="#">Agents</a></li>
               <li><a href="#">Contact</a></li>
               <li><a href="#">FAQs</a></li>
-              <li><a href="#">Properties</a></li>
+              <li><a href="#properties">Properties</a></li>
             </ul>
           </nav>
 
@@ -769,33 +802,58 @@
     </div>
 
     <!-- Overlay MODAL WINDOWS -->
-    <div class="modal-overlay"></div>
 
-    <div class="modal modal-cart">
-      <h3>Your Cart</h3>
-      <ul>
-        <li>Item 1 - $100</li>
-        <li>Item 2 - $50</li>
-      </ul>
-      <button class="close-modal">Close</button>
+    <div id="modals-container">
+      <div class="modal-overlay"></div>
+
+      <div class="modal modal-cart">
+        <h3>Your Cart</h3>
+
+        <ul class="cart-items"></ul>
+        <button class="close-modal">Close</button>
+      </div>
+
+      <div class="modal modal-find">
+        <h3>Find a Property</h3>
+        <form>
+          <input type="text" id="city" name="city" placeholder="City" />
+          <input
+            type="number"
+            id="price"
+            name="price"
+            placeholder="Price from"
+          />
+          <input
+            type="number"
+            id="priceto"
+            name="priceto"
+            placeholder="Price to"
+          />
+          <button type="submit">Search</button>
+        </form>
+        <button class="close-modal">Close</button>
+      </div>
+
+      <div class="modal modal-apartment" id="apartment-modal">
+        <div class="modal-gallery">
+          <div class="modal-gallery__track"></div>
+        </div>
+
+        <button class="modal-close">×</button>
+        <div class="modal-content">
+          <img class="modal-img" src="" alt="" />
+          <h3 class="modal-title"></h3>
+          <div class="modal-price"></div>
+          <div class="modal-location"></div>
+          <div class="modal-stats"></div>
+          <p class="modal-description"></p>
+          <button class="modal-add-to-cart">Add to Cart</button>
+        </div>
+      </div>
     </div>
 
-    <div class="modal modal-find">
-      <h3>Find a Property</h3>
-      <form>
-        <input type="text" id="city" name="city" placeholder="City" />
-        <input type="number" id="price" name="price" placeholder="Price from" />
-        <input
-          type="number"
-          id="priceto"
-          name="priceto"
-          placeholder="Price to"
-        />
-        <button type="submit">Search</button>
-      </form>
-      <button class="close-modal">Close</button>
-    </div>
-
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+    <div class="cart-toast">Successfully added to cart!</div>
     <script src="js/main.js"></script>
   </body>
 </html>

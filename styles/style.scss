@@ -106,7 +106,7 @@ header {
       width: 100%;
       background-color: $text-color;
       border-radius: 2px;
-      transition: all 0.3s ease;
+      transition: $transition;
       margin-bottom: 4px;
     }
 
@@ -133,7 +133,7 @@ header {
 
 ul {
   @include flex-center;
-  gap: 6rem;
+  gap: 1rem;
 }
 
 a {
@@ -285,7 +285,7 @@ a {
   }
   .btn-find {
     background-color: $secondary-color;
-    color: #fff;
+    color: $light-color;
     border: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
@@ -305,7 +305,7 @@ a {
     position: absolute;
     top: 100%;
     right: 0;
-    background: #fff;
+    background: $light-color;
     border: 1px solid #ddd;
     border-radius: $border-radius;
     padding: 1rem;
@@ -342,7 +342,7 @@ a {
 
       button {
         background-color: $secondary-color;
-        color: #fff;
+        color: $light-color;
         border: none;
         cursor: pointer;
       }
@@ -372,7 +372,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
+  background: $light-color;
   border-radius: $border-radius;
   padding: 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -385,6 +385,8 @@ a {
     list-style: none;
     padding: 0;
     margin: 0 0 1rem 0;
+    // flex-direction: column;
+    // justify-self: baseline;
   }
 
   li {
@@ -410,7 +412,7 @@ a {
 
     button {
       background-color: $secondary-color;
-      color: #fff;
+      color: $light-color;
       border: none;
       cursor: pointer;
     }
@@ -421,7 +423,113 @@ a {
 .modal-overlay.active {
   display: block;
 }
+.modal.is-open {
+  display: block;
+}
 
+.modal-close,
+.close-modal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal-gallery {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-gallery__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.modal-gallery__track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.modal-add-to-cart {
+  margin-top: 10px;
+  color: $btn-color;
+}
+
+/* Контейнер списка корзины */
+.modal-cart {
+  width: 100%;
+}
+.modal-cart .cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+/* Каждый элемент корзины */
+.modal-cart .cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer; /* чтобы клик открывал модалку квартиры */
+}
+
+/* Картинка слева */
+.modal-cart .cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 15px;
+}
+
+/* Текстовая часть */
+.modal-cart .cart-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Название и цена */
+.modal-cart .cart-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.modal-cart .cart-price {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Кнопка удалить */
+.modal-cart .remove-item {
+  background: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Сообщение о добавлении */
+.modal-cart .cart-message {
+  margin-bottom: 10px;
+  color: green;
+  font-weight: bold;
+  display: none; /* показывается через JS */
+}
+.cart-message.active {
+  display: block;
+  opacity: 1;
+}
 // HERO SECTION
 .hero {
   min-height: 720px;
@@ -471,7 +579,7 @@ a {
       max-width: 503px;
       font-size: 20px;
       line-height: 30px;
-      color: #65665c;
+      color: $acent-color;
     }
   }
   .hero__col--image {
@@ -499,9 +607,9 @@ a {
   align-items: center;
   padding: 0.5rem 1rem;
   max-width: 310px;
-  border-radius: 8px;
+  border-radius: $border-radius;
   flex: 1;
-  background-color: #fff;
+  background-color: $light-color;
 }
 
 .search__input {
@@ -516,7 +624,7 @@ a {
 .btn-find {
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: $border-radius;
   background-color: $secondary-color;
   color: white;
   cursor: pointer;
@@ -527,7 +635,7 @@ a {
 //---//
 .partners {
   padding: 3rem 0;
-  background: #fff;
+  background: $light-color;
 
   &__row {
     display: flex;
@@ -573,7 +681,7 @@ a {
 //--2section--//
 .how-it-works {
   padding: 5rem 0;
-  background: #fff;
+  background: $light-color;
 
   &__header {
     max-width: 600px;
@@ -602,7 +710,7 @@ a {
 }
 .how-card {
   max-width: 405px;
-  background: #fff;
+  background: $light-color;
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
@@ -677,7 +785,7 @@ a {
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    color: #65665c;
+    color: $acent-color;
     padding-bottom: 20px;
   }
   &__actions {
@@ -693,9 +801,9 @@ a {
   justify-content: center;
 
   padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: $border-radius;
 
-  background-color: #fff;
+  background-color: $light-color;
   color: #2a2a2a;
   border: 1px solid #e5e5e5;
 
@@ -808,7 +916,7 @@ a.btn-primary::after {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background-color: #fff;
+  background-color: $light-color;
 }
 
 .card__title {
@@ -855,6 +963,57 @@ a.btn-primary::after {
     height: 16px;
   }
 }
+/* Список элементов корзины */
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Каждая строка корзины */
+.cart-item {
+  display: flex; /* элементы в строку */
+  align-items: center; /* выравнивание по центру вертикали */
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd; /* линия между элементами */
+}
+
+/* Мини-картинка слева */
+.cart-item img {
+  width: 60px; /* размер картинки */
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 15px;
+}
+
+/* Информация о квартире */
+.cart-info {
+  flex-grow: 1; /* занимает все оставшееся пространство */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Название и цена */
+.cart-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.cart-price {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Кнопка удалить */
+.remove-item {
+  background: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 93px;
+}
 
 .locations {
   position: relative;
@@ -871,7 +1030,7 @@ a.btn-primary::after {
     max-width: 600px;
     margin: 12px auto 48px;
     text-align: center;
-    color: #65665c;
+    color: $acent-color;
     font-size: 18px;
     line-height: 27px;
   }
@@ -903,7 +1062,7 @@ a.btn-primary::after {
       background: #6f7165;
       border-radius: 16px;
       text-align: center;
-      color: #ffffff;
+      color: $light-color;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     }
 
@@ -935,7 +1094,7 @@ a.btn-primary::after {
     }
     .btn__primary {
       padding: 13px 25px;
-      background-color: #cf6f49;
+      background-color: $btn-color;
       border-radius: 6px;
     }
   }
@@ -943,7 +1102,7 @@ a.btn-primary::after {
 
 /* ===== Location Card ===== */
 .location-card {
-  background: #fff;
+  background: $light-color;
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
@@ -956,7 +1115,7 @@ a.btn-primary::after {
 
   a {
     font-size: 16px;
-    color: #2a2c1f;
+    color: $text-color;
     line-height: 24px;
   }
   a::after {
@@ -973,7 +1132,7 @@ a.btn-primary::after {
 /*----reviews----*/
 .reviews {
   padding: 200px 0 120px;
-  background: #ffffff;
+  background: $light-color;
 
   &__container {
     max-width: 1200px;
@@ -989,13 +1148,13 @@ a.btn-primary::after {
   &__title {
     font-size: 48px;
     font-weight: 700;
-    color: #2a2c1f;
+    color: $text-color;
   }
 
   &__subtitle {
     margin-top: 26px;
     font-size: 18px;
-    color: #65665c;
+    color: $acent-color;
     line-height: 27px;
   }
 
@@ -1008,7 +1167,7 @@ a.btn-primary::after {
 
 /* card */
 .review-card {
-  background: #fff;
+  background: $light-color;
   border-radius: 16px;
   padding: 32px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
@@ -1087,7 +1246,7 @@ a.btn-primary::after {
 
   &__description {
     max-width: 710px;
-    color: #65665c;
+    color: $acent-color;
     line-height: 1.6;
     font-size: 18px;
     line-height: 27px;
@@ -1103,7 +1262,7 @@ a.btn-primary::after {
 /* cards */
 
 .post-card {
-  background: #fff;
+  background: $light-color;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
@@ -1144,7 +1303,7 @@ a.btn-primary::after {
 
   &__text {
     font-size: 16px;
-    color: #65665c;
+    color: $acent-color;
     line-height: 24px;
     margin-bottom: 16px;
   }
@@ -1152,7 +1311,7 @@ a.btn-primary::after {
   &__link {
     font-size: 16px;
     font-weight: 500;
-    color: #2a2c1f;
+    color: $text-color;
     text-decoration: none;
     margin-top: auto;
   }
@@ -1168,12 +1327,12 @@ a.btn-primary::after {
   color: #222;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #fff;
+  background-color: $light-color;
 }
 
 /*----footer-----*/
 .footer {
-  background: #fff;
+  background: $light-color;
   padding: 80px 0;
 
   /* Верхняя часть футера */
@@ -1193,19 +1352,13 @@ a.btn-primary::after {
     & .footer__logo {
       font-size: 20px;
       font-weight: 700;
-      color: #2a2c1f;
+      color: $text-color;
     }
   }
 
   /* Навигационные колонки */
   &__nav {
     text-align: left;
-    // h4.footer__title {
-    //   font-size: 14px;
-    //   font-weight: 600;
-    //   margin-bottom: 16px;
-    //   color: #2a2c1f;
-    // }
 
     ul {
       list-style: none;
@@ -1223,11 +1376,11 @@ a.btn-primary::after {
       a {
         font-size: 14px;
         line-height: 21px;
-        color: #65665c;
+        color: $acent-color;
         text-decoration: none;
 
         &:hover {
-          color: #2a2c1f;
+          color: $text-color;
         }
       }
     }
@@ -1240,7 +1393,7 @@ a.btn-primary::after {
     .footer__text {
       font-size: 14px;
       line-height: 21px;
-      color: #65665c;
+      color: $acent-color;
       margin-bottom: 16px;
     }
 
@@ -1262,7 +1415,7 @@ a.btn-primary::after {
         border-radius: 6px;
         border: none;
         background-color: #d76b4b; /* цвет кнопки */
-        color: #fff;
+        color: $light-color;
         font-size: 14px;
         cursor: pointer;
 
@@ -1276,40 +1429,6 @@ a.btn-primary::after {
       display: block;
       font-size: 12px;
       color: #8b8b8b;
-    }
-  }
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .footer {
-    padding: 64px 0;
-
-    &__grid {
-      grid-template-columns: repeat(3, 1fr);
-      row-gap: 40px;
-    }
-
-    &__subscribe {
-      grid-column: span 3;
-      max-width: 100%;
-    }
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .footer {
-    padding: 48px 0;
-
-    &__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-
-    &__subscribe,
-    &__brand {
-      grid-column: span 2;
     }
   }
 }
@@ -1336,8 +1455,59 @@ a.btn-primary::after {
     a {
       text-decoration: none;
       color: #6f6f6f;
+      &::after {
+        display: none !important;
+      }
     }
   }
+}
+
+button.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  border: none;
+  background: #111;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+// всплівающее окно
+.cart-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.cart-toast.active {
+  opacity: 1;
 }
 
 /*media*/
