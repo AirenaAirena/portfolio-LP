@@ -19,21 +19,12 @@ document.addEventListener('click', (e) => {
   })
 })
 
-const searchForm = document.querySelector('.search-form')
-const toggleBtn = document.querySelector('.search-toggle')
-
-toggleBtn.addEventListener('click', (e) => {
-  e.stopPropagation() // чтобы клик не "улетал" дальше
-  searchForm.classList.toggle('active')
-})
-
-// Закрытие при клике вне поиска
 document.addEventListener('click', (e) => {
   if (
     !e.target.closest('.search-form') &&
     !e.target.closest('.search-toggle')
   ) {
-    searchForm.classList.remove('active')
+    // searchForm.classList.remove('.active')
   }
 })
 
@@ -44,11 +35,18 @@ const closeButtons = document.querySelectorAll('.close-modal, .modal-close')
 function openModal(modal) {
   modal.classList.add('active')
   overlay.classList.add('active')
+  document.body.classList.add('modal-open')
 }
 
+//
 function closeModal(modal) {
   modal.classList.remove('active')
-  overlay.classList.remove('active')
+
+  if (!document.querySelector('.modal.active')) {
+    overlay.classList.remove('active')
+    document.body.classList.remove('modal-open')
+  }
+
   if (sliderInterval) clearInterval(sliderInterval)
 }
 
@@ -58,11 +56,17 @@ overlay.addEventListener('click', () => {
     .forEach((modal) => closeModal(modal))
 })
 
-closeButtons.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
+// closeButtons.forEach((btn) => {
+//   btn.addEventListener('click', (e) => {
+//     const modal = e.target.closest('.modal')
+//     if (modal) closeModal(modal)
+//   })
+// })
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.close-modal, .modal-close')) {
     const modal = e.target.closest('.modal')
     if (modal) closeModal(modal)
-  })
+  }
 })
 
 // cart / find
@@ -140,6 +144,62 @@ document.querySelectorAll('.card').forEach((card) => {
       }
     }, 2000)
   })
+})
+
+// ================= FIND PROPERTY MODAL SEARCH =================
+const findModal = document.querySelector('.modal-find')
+const findForm = findModal.querySelector('form')
+const findResults = findModal.querySelector('.search-results')
+// let findResults = findModal.querySelector('.search-results')
+
+// если контейнера для результатов нет — создаем
+// if (!findResults) {
+//   findResults = document.createElement('div')
+//   findResults.classList.add('find-results')
+//   findModal.appendChild(findResults)
+// }
+
+findForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const city = findForm.querySelector('#city').value.toLowerCase().trim()
+  const priceFrom = parseFloat(findForm.querySelector('#price').value) || 0
+  const priceTo =
+    parseFloat(findForm.querySelector('#priceto').value) || Infinity
+
+  const cards = document.querySelectorAll(
+    '.listings__grid .card:not(find-result-card)',
+  )
+  findResults.innerHTML = '' // очищаем прошлые результаты
+
+  let foundAny = false
+
+  cards.forEach((card) => {
+    const cardCity =
+      card.querySelector('.card__location span')?.textContent.toLowerCase() ||
+      ''
+    const cardPriceStr = card
+      .querySelector('.card__price')
+      ?.textContent.replace(/[^0-9.]/g, '')
+    const cardPrice = parseFloat(cardPriceStr) || 0
+
+    if (
+      cardCity.includes(city) &&
+      cardPrice >= priceFrom &&
+      cardPrice <= priceTo
+    ) {
+      // создаем мини-копию карточки для результатов
+      const clone = card.cloneNode(true)
+      clone.classList.add('find-result-card')
+      clone.addEventListener('click', (e) => e.stopPropagation())
+      findResults.appendChild(clone)
+      foundAny = true
+    }
+  })
+
+  if (!foundAny) {
+    findResults.innerHTML = '<p>No results found.</p>'
+  }
 })
 
 //burger
@@ -264,3 +324,5 @@ function openApartmentModalFromCart(item) {
   if (addBtn) addBtn.style.display = 'none'
 }
 renderCart()
+
+//findModal

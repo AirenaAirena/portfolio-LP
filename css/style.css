@@ -181,38 +181,6 @@ a.menu__link-prop {
   transform: rotate(180deg);
 }
 
-.search-form {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.search-form .search-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.search-form .search-input {
-  position: absolute;
-  right: 0;
-  width: 0;
-  padding: 0.5rem 1rem;
-  border: 1px solid #2e6eff;
-  border-radius: 8px;
-  opacity: 0;
-  transition: width 0.3s ease, opacity 0.3s ease;
-}
-.search-form .search-input:focus {
-  outline: none;
-}
-.search-form.active .search-input {
-  width: 200px;
-  opacity: 1;
-}
-
 .header-buttons {
   position: relative;
   display: flex;
@@ -336,9 +304,13 @@ a.menu__link-prop {
   padding: 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   display: none;
+  flex-direction: column;
+  overflow: hidden;
   z-index: 1000;
   width: 300px;
   max-width: 90vw;
+  max-height: 85vh;
+  height: 85vh;
 }
 .modal ul {
   list-style: none;
@@ -369,10 +341,29 @@ a.menu__link-prop {
   border: none;
   cursor: pointer;
 }
+.modal .find-form {
+  flex-shrink: 0;
+}
+.modal.modal-find {
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+.modal .search-results {
+  gap: 10px;
+  margin-top: 10px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
 
 .modal.active,
 .modal-overlay.active {
-  display: block;
+  display: flex;
 }
 
 .modal.is-open {
@@ -416,7 +407,6 @@ a.menu__link-prop {
   color: #cf6f49;
 }
 
-/* Контейнер списка корзины */
 .modal-cart {
   width: 100%;
 }
@@ -430,16 +420,14 @@ a.menu__link-prop {
   align-items: baseline;
 }
 
-/* Каждый элемент корзины */
 .modal-cart .cart-item {
   display: flex;
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  cursor: pointer; /* чтобы клик открывал модалку квартиры */
+  cursor: pointer;
 }
 
-/* Картинка слева */
 .modal-cart .cart-item img {
   width: 60px;
   height: 60px;
@@ -449,14 +437,12 @@ a.menu__link-prop {
   margin-right: 15px;
 }
 
-/* Текстовая часть */
 .modal-cart .cart-info {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Название и цена */
 .modal-cart .cart-title {
   font-weight: bold;
   margin-bottom: 4px;
@@ -467,7 +453,6 @@ a.menu__link-prop {
   font-size: 14px;
 }
 
-/* Кнопка удалить */
 .modal-cart .remove-item {
   background: transparent;
   border: none;
@@ -476,12 +461,11 @@ a.menu__link-prop {
   font-weight: bold;
 }
 
-/* Сообщение о добавлении */
 .modal-cart .cart-message {
   margin-bottom: 10px;
   color: green;
   font-weight: bold;
-  display: none; /* показывается через JS */
+  display: none;
 }
 
 .cart-message.active {
@@ -553,25 +537,6 @@ a.menu__link-prop {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.search__field {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  max-width: 310px;
-  border-radius: 8px;
-  flex: 1;
-  background-color: #ffffff;
-}
-
-.search__input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #333;
-  margin-left: 0.5rem;
 }
 
 .btn-find {

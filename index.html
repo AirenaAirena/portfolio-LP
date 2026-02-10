@@ -47,7 +47,7 @@
           </ul>
         </nav>
 
-        <form class="search-form" role="search">
+        <!-- <form class="search-form" role="search">
           <button type="button" class="search-toggle" aria-label="Open search">
             <img src="assets/img/search.svg" alt="" />
             Search
@@ -59,7 +59,7 @@
             placeholder="Search..."
             aria-label="Search"
           />
-        </form>
+        </form> -->
 
         <div class="header-buttons">
           <button class="btn-cart">
@@ -95,7 +95,7 @@
           </p>
 
           <div class="search__wrap">
-            <div class="search__field">
+            <!-- <div class="search__field">
               <svg
                 width="20"
                 height="20"
@@ -113,7 +113,7 @@
               </svg>
 
               <input type="text" class="search__input" placeholder="Search" />
-            </div>
+            </div> -->
 
             <button class="btn-find">Find property</button>
           </div>
@@ -493,7 +493,7 @@
             </div>
           </article>
         </div>
-
+        <!-- <div class="no-results" style="display: none">No results</div> -->
         <div class="listings__actions">
           <a href="#" class="btn btn-primary">Explore properties</a>
           <a href="#" class="btn btn-link">Contact agent</a>
@@ -815,7 +815,7 @@
 
       <div class="modal modal-find">
         <h3>Find a Property</h3>
-        <form>
+        <form class="find-form">
           <input type="text" id="city" name="city" placeholder="City" />
           <input
             type="number"
@@ -831,6 +831,7 @@
           />
           <button type="submit">Search</button>
         </form>
+        <div class="search-results"></div>
         <button class="close-modal">Close</button>
       </div>
 

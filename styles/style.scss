@@ -208,43 +208,43 @@ a {
   }
 }
 
-.search-form {
-  position: relative;
-  display: flex;
-  align-items: center;
+// .search-form {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
 
-  .search-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+//   .search-toggle {
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     font-size: 16px;
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+//   }
 
-  .search-input {
-    position: absolute;
-    right: 0;
-    width: 0;
-    padding: 0.5rem 1rem;
-    border: 1px solid $primary-color;
-    border-radius: $border-radius;
-    opacity: 0;
-    transition:
-      width 0.3s ease,
-      opacity 0.3s ease;
+//   .search-input {
+//     position: absolute;
+//     right: 0;
+//     width: 0;
+//     padding: 0.5rem 1rem;
+//     border: 1px solid $primary-color;
+//     border-radius: $border-radius;
+//     opacity: 0;
+//     transition:
+//       width 0.3s ease,
+//       opacity 0.3s ease;
 
-    &:focus {
-      outline: none;
-    }
-  }
+//     &:focus {
+//       outline: none;
+//     }
+//   }
 
-  &.active .search-input {
-    width: 200px;
-    opacity: 1;
-  }
-}
+//   &.active .search-input {
+//     width: 200px;
+//     opacity: 1;
+//   }
+// }
 
 .header-buttons {
   position: relative;
@@ -299,7 +299,7 @@ a {
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
   }
-  // ▼ Dropdowns для кнопок
+
   .cart-dropdown,
   .find-dropdown {
     position: absolute;
@@ -349,7 +349,6 @@ a {
     }
   }
 
-  // ▼ Показываем при добавлении класса active
   .cart-dropdown.active,
   .find-dropdown.active {
     display: block;
@@ -377,9 +376,13 @@ a {
   padding: 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   display: none;
+  flex-direction: column;
+  overflow: hidden;
   z-index: 1000;
   width: 300px;
   max-width: 90vw;
+  max-height: 85vh;
+  height: 85vh;
 
   ul {
     list-style: none;
@@ -417,11 +420,33 @@ a {
       cursor: pointer;
     }
   }
+  .find-form {
+    flex-shrink: 0;
+  }
+  &.modal-find {
+    // display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    // max-height: 180vh;
+  }
+  .search-results {
+    // display: flex;
+    // flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+  }
 }
 
+body.modal-open {
+  overflow: hidden;
+}
 .modal.active,
 .modal-overlay.active {
-  display: block;
+  display: flex;
 }
 .modal.is-open {
   display: block;
@@ -461,7 +486,6 @@ a {
   color: $btn-color;
 }
 
-/* Контейнер списка корзины */
 .modal-cart {
   width: 100%;
 }
@@ -474,16 +498,14 @@ a {
   align-items: baseline;
 }
 
-/* Каждый элемент корзины */
 .modal-cart .cart-item {
   display: flex;
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  cursor: pointer; /* чтобы клик открывал модалку квартиры */
+  cursor: pointer;
 }
 
-/* Картинка слева */
 .modal-cart .cart-item img {
   width: 60px;
   height: 60px;
@@ -492,14 +514,12 @@ a {
   margin-right: 15px;
 }
 
-/* Текстовая часть */
 .modal-cart .cart-info {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Название и цена */
 .modal-cart .cart-title {
   font-weight: bold;
   margin-bottom: 4px;
@@ -510,7 +530,6 @@ a {
   font-size: 14px;
 }
 
-/* Кнопка удалить */
 .modal-cart .remove-item {
   background: transparent;
   border: none;
@@ -519,17 +538,18 @@ a {
   font-weight: bold;
 }
 
-/* Сообщение о добавлении */
 .modal-cart .cart-message {
   margin-bottom: 10px;
   color: green;
   font-weight: bold;
-  display: none; /* показывается через JS */
+  display: none;
 }
 .cart-message.active {
   display: block;
   opacity: 1;
 }
+// ModalFind
+
 // HERO SECTION
 .hero {
   min-height: 720px;
@@ -602,25 +622,25 @@ a {
   align-items: center;
   gap: 8px;
 }
-.search__field {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  max-width: 310px;
-  border-radius: $border-radius;
-  flex: 1;
-  background-color: $light-color;
-}
+// .search__field {
+//   display: flex;
+//   align-items: center;
+//   padding: 0.5rem 1rem;
+//   max-width: 310px;
+//   border-radius: $border-radius;
+//   flex: 1;
+//   background-color: $light-color;
+// }
 
-.search__input {
-  flex: 1;
-  border: none;
-  outline: none;
+// .search__input {
+//   flex: 1;
+//   border: none;
+//   outline: none;
 
-  font-size: 16px;
-  color: #333;
-  margin-left: 0.5rem;
-}
+//   font-size: 16px;
+//   color: #333;
+//   margin-left: 0.5rem;
+// }
 .btn-find {
   padding: 0.5rem 1rem;
   border: none;
