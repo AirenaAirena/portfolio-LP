@@ -38,9 +38,15 @@ function openModal(modal) {
   document.body.classList.add('modal-open')
 }
 
-//
 function closeModal(modal) {
   modal.classList.remove('active')
+  if (modal.classList.contains('modal-find')) {
+    const form = modal.querySelector('form')
+    const results = modal.querySelector('.search-results')
+
+    if (form) form.reset()
+    if (results) results.innerHTML = ''
+  }
 
   if (!document.querySelector('.modal.active')) {
     overlay.classList.remove('active')
@@ -49,6 +55,13 @@ function closeModal(modal) {
 
   if (sliderInterval) clearInterval(sliderInterval)
 }
+document.querySelectorAll('[data-modal]').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    const modal = document.querySelector(`.${btn.dataset.modal}`)
+    if (modal) openModal(modal)
+  })
+})
 
 overlay.addEventListener('click', () => {
   document
@@ -56,12 +69,6 @@ overlay.addEventListener('click', () => {
     .forEach((modal) => closeModal(modal))
 })
 
-// closeButtons.forEach((btn) => {
-//   btn.addEventListener('click', (e) => {
-//     const modal = e.target.closest('.modal')
-//     if (modal) closeModal(modal)
-//   })
-// })
 document.addEventListener('click', (e) => {
   if (e.target.closest('.close-modal, .modal-close')) {
     const modal = e.target.closest('.modal')
@@ -168,7 +175,7 @@ findForm.addEventListener('submit', (e) => {
     parseFloat(findForm.querySelector('#priceto').value) || Infinity
 
   const cards = document.querySelectorAll(
-    '.listings__grid .card:not(find-result-card)',
+    '.listings__grid .card:not(.find-result-card)',
   )
   findResults.innerHTML = '' // очищаем прошлые результаты
 
@@ -191,17 +198,19 @@ findForm.addEventListener('submit', (e) => {
       // создаем мини-копию карточки для результатов
       const clone = card.cloneNode(true)
       clone.classList.add('find-result-card')
-      clone.addEventListener('click', (e) => e.stopPropagation())
+      clone.addEventListener('click', () => {
+        const data = getCardData(card)
+        openApartmentModalFromCart(data)
+      })
+      // clone.addEventListener('click', (e) => e.stopPropagation())
       findResults.appendChild(clone)
       foundAny = true
     }
   })
-
   if (!foundAny) {
     findResults.innerHTML = '<p>No results found.</p>'
   }
 })
-
 //burger
 const burger = document.querySelector('.burger')
 const menu = document.querySelector('nav.menu')
@@ -252,6 +261,20 @@ function addToCart(item) {
     showCartMessage()
   } else {
     alert('This apartment is already in the cart')
+  }
+}
+function getCardData(card) {
+  return {
+    id: card.dataset.id || Date.now().toString(),
+    title: card.querySelector('.card__title').textContent,
+    price: card.querySelector('.card__price').textContent,
+    image: card.querySelector('img').src,
+    images: card.dataset.images
+      ? card.dataset.images.split(',')
+      : [card.querySelector('img').src],
+    location: card.querySelector('.card__location').innerHTML,
+    stats: card.querySelector('.card__stats').innerHTML,
+    description: card.dataset.description || 'Nice cozy apartment for living.',
   }
 }
 
@@ -326,3 +349,28 @@ function openApartmentModalFromCart(item) {
 renderCart()
 
 //findModal
+//senden form
+const contactForm = document
+  .getElementById('contact-modal')
+  ?.querySelector('form')
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault() // отменяем стандартную отправку
+
+    const formData = new FormData(contactForm)
+    const data = Object.fromEntries(formData.entries())
+
+    console.log('Forma Contact agent:', data)
+    alert(`Thank, ${data.name}! you for your message.`)
+
+    contactForm.reset()
+
+    const modal = contactForm.closest('.modal')
+    if (modal) {
+      modal.classList.remove('active')
+      document.querySelector('.modal-overlay').classList.remove('active')
+      document.body.classList.remove('modal-open')
+    }
+  })
+}
