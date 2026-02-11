@@ -286,6 +286,7 @@
             data-id="house-1"
             data-description="A bright and cozy studio apartment located in the heart of Los Angeles. Perfect for young professionals or couples."
             data-images="assets/img/house1.jpg,assets/img/house2.jpg,assets/img/house3.jpg"
+            data-city="los-angeles"
           >
             <div class="card__image">
               <img src="assets/img/house1.jpg" alt="" />
@@ -323,6 +324,7 @@
             data-description="Spacious studio featuring minimalist design, fully equipped kitchen, comfortable living area, and a private balcony overlooking the bustling streets.
 "
             data-images="assets/img/house2.jpg,assets/img/house3.jpg,assets/img/house4.jpg"
+            data-city="san-diego"
           >
             <div class="card__image">
               <img src="assets/img/house2.jpg" alt="" />
@@ -361,6 +363,7 @@
 
 "
             data-images="assets/img/house3.jpg,assets/img/house4.jpg,assets/img/house5.jpg"
+            data-city="new-york"
           >
             <div class="card__image">
               <img src="assets/img/house3.jpg" alt="" />
@@ -397,6 +400,7 @@
             data-id="house-4"
             data-description="Modern loft with exposed brick walls, high ceilings, stylish décor, a comfortable lounge, and panoramic city views ideal for entertaining guests."
             data-images="assets/img/house4.jpg,assets/img/house5.jpg,assets/img/house6.jpg"
+            data-city="los-angeles"
           >
             <div class="card__image">
               <img src="assets/img/house4.jpg" alt="" />
@@ -433,6 +437,7 @@
             data-id="house-5"
             data-description="Bright and airy three-bedroom apartment located in a quiet neighborhood, featuring a spacious living area, fully equipped kitchen, luxurious bathroom, and a balcony with scenic cityscape views."
             data-images="assets/img/house5.jpg,assets/img/house6.jpg,assets/img/house1.jpg"
+            data-city="las-vegas"
           >
             <div class="card__image">
               <img src="assets/img/house5.jpg" alt="" />
@@ -469,6 +474,7 @@
             data-id="house-6"
             data-description=" luxurious penthouse with panoramic city views, modern furnishings, spacious living areas, a fully equipped kitchen, elegant bedrooms, stylish bathrooms, and a private terrace perfect for relaxing or entertaining guests."
             data-images="assets/img/house6.jpg,assets/img/house1.jpg,assets/img/house2.jpg"
+            data-city="san-diego"
           >
             <div class="card__image">
               <img src="assets/img/house6.jpg" alt="" />
@@ -501,7 +507,7 @@
             </div>
           </article>
         </div>
-        <!-- <div class="no-results" style="display: none">No results</div> -->
+
         <div class="listings__actions">
           <a href="#" class="btn btn-primary" data-modal="modal-find"
             >Explore properties</a
@@ -523,32 +529,32 @@
         </p>
 
         <div class="locations__grid">
-          <article class="location-card">
+          <article class="location-card" data-city="san-francisco">
             <h3>San Francisco, CA</h3>
             <a href="#">View Properties </a>
           </article>
 
-          <article class="location-card">
+          <article class="location-card" data-city="los-angeles">
             <h3>Los Angeles, CA</h3>
             <a href="#">View Properties </a>
           </article>
 
-          <article class="location-card">
+          <article class="location-card" data-city="san-diego">
             <h3>San Diego, CA</h3>
             <a href="#">View Properties </a>
           </article>
 
-          <article class="location-card">
+          <article class="location-card" data-city="new-york">
             <h3>New York, NY</h3>
             <a href="#">View Properties </a>
           </article>
 
-          <article class="location-card">
+          <article class="location-card" data-city="las-vegas">
             <h3>Las Vegas, NV</h3>
             <a href="#">View Properties </a>
           </article>
 
-          <article class="location-card">
+          <article class="location-card" data-city="miami">
             <h3>Miami, FL</h3>
             <a href="#">View Properties </a>
           </article>
@@ -693,6 +699,7 @@
                 Integer tincidunt rutrum faucibus. Proin sit amet varius arcu.
                 Aliquam vel leo augue donec.
               </p>
+
               <a href="#" class="post-card__link btn-link">Read more </a>
             </div>
           </article>
@@ -883,6 +890,52 @@
           ></textarea>
           <button type="submit" class="modal-send">Senden</button>
         </form>
+      </div>
+
+      <!-- Контейнер для всех городских модалок -->
+      <div class="modals-cities">
+        <div class="modal modal-city modal-find" id="modal-san-francisco">
+          <button class="modal-close">&times;</button>
+          <h2>San Francisco Properties</h2>
+          <div class="search-results"></div>
+        </div>
+
+        <div class="modal modal-city modal-find" id="modal-los-angeles">
+          <button class="modal-close">&times;</button>
+          <h2>Los Angeles Properties</h2>
+          <div class="search-results"></div>
+        </div>
+
+        <div class="modal modal-city modal-find" id="modal-san-diego">
+          <button class="modal-close">&times;</button>
+          <h2>San Diego Properties</h2>
+          <div class="search-results"></div>
+        </div>
+
+        <div class="modal modal-city modal-find" id="modal-new-york">
+          <button class="modal-close">&times;</button>
+          <h2>New York</h2>
+          <div class="search-results"></div>
+        </div>
+
+        <div class="modal modal-city modal-find" id="modal-las-vegas">
+          <button class="modal-close">&times;</button>
+          <h2>Las Vegas</h2>
+          <div class="search-results"></div>
+        </div>
+
+        <div class="modal modal-city modal-find" id="modal-miami">
+          <button class="modal-close">&times;</button>
+          <h2>Miami</h2>
+          <div class="search-results"></div>
+        </div>
+      </div>
+
+      <!-- blog -->
+      <div class="modal modal-blog" id="blog-modal">
+        <button class="modal-close">&times;</button>
+        <h3 class="modal-title"></h3>
+        <p class="modal-text"></p>
       </div>
     </div>
 

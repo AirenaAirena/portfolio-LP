@@ -356,6 +356,9 @@ a.menu__link-prop {
   overflow-y: auto;
   min-height: 0;
 }
+.modal-apartment {
+  z-index: 2000;
+}
 
 body.modal-open {
   overflow: hidden;
@@ -876,24 +879,21 @@ a.btn-primary::after {
   height: 16px;
 }
 
-/* Список элементов корзины */
 .cart-items {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Каждая строка корзины */
 .cart-item {
-  display: flex; /* элементы в строку */
-  align-items: center; /* выравнивание по центру вертикали */
+  display: flex;
+  align-items: center;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd; /* линия между элементами */
+  border-bottom: 1px solid #ddd;
 }
 
-/* Мини-картинка слева */
 .cart-item img {
-  width: 60px; /* размер картинки */
+  width: 60px;
   height: 60px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -901,14 +901,12 @@ a.btn-primary::after {
   margin-right: 15px;
 }
 
-/* Информация о квартире */
 .cart-info {
-  flex-grow: 1; /* занимает все оставшееся пространство */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Название и цена */
 .cart-title {
   font-weight: bold;
   margin-bottom: 4px;
@@ -919,7 +917,6 @@ a.btn-primary::after {
   font-size: 14px;
 }
 
-/* Кнопка удалить */
 .remove-item {
   background: transparent;
   border: none;
@@ -1303,7 +1300,6 @@ a.btn-primary::after {
   color: #8b8b8b;
 }
 
-/* нижняя строка */
 .footer-bottom {
   background: #f5f5f2;
   border-top: 1px solid #e5e5e5;

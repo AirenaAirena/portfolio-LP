@@ -24,7 +24,6 @@ document.addEventListener('click', (e) => {
     !e.target.closest('.search-form') &&
     !e.target.closest('.search-toggle')
   ) {
-    // searchForm.classList.remove('.active')
   }
 })
 
@@ -33,6 +32,9 @@ const overlay = document.querySelector('.modal-overlay')
 const closeButtons = document.querySelectorAll('.close-modal, .modal-close')
 
 function openModal(modal) {
+  // document.querySelectorAll('.modal.active').forEach((m) => {
+  //   m.classList.remove('active')
+  // })
   modal.classList.add('active')
   overlay.classList.add('active')
   document.body.classList.add('modal-open')
@@ -159,13 +161,6 @@ const findForm = findModal.querySelector('form')
 const findResults = findModal.querySelector('.search-results')
 // let findResults = findModal.querySelector('.search-results')
 
-// если контейнера для результатов нет — создаем
-// if (!findResults) {
-//   findResults = document.createElement('div')
-//   findResults.classList.add('find-results')
-//   findModal.appendChild(findResults)
-// }
-
 findForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
@@ -177,7 +172,7 @@ findForm.addEventListener('submit', (e) => {
   const cards = document.querySelectorAll(
     '.listings__grid .card:not(.find-result-card)',
   )
-  findResults.innerHTML = '' // очищаем прошлые результаты
+  findResults.innerHTML = ''
 
   let foundAny = false
 
@@ -195,14 +190,13 @@ findForm.addEventListener('submit', (e) => {
       cardPrice >= priceFrom &&
       cardPrice <= priceTo
     ) {
-      // создаем мини-копию карточки для результатов
       const clone = card.cloneNode(true)
       clone.classList.add('find-result-card')
       clone.addEventListener('click', () => {
         const data = getCardData(card)
         openApartmentModalFromCart(data)
       })
-      // clone.addEventListener('click', (e) => e.stopPropagation())
+
       findResults.appendChild(clone)
       foundAny = true
     }
@@ -211,13 +205,14 @@ findForm.addEventListener('submit', (e) => {
     findResults.innerHTML = '<p>No results found.</p>'
   }
 })
-//burger
+
+//BURGER
 const burger = document.querySelector('.burger')
 const menu = document.querySelector('nav.menu')
 
 burger.addEventListener('click', () => {
-  burger.classList.toggle('active') // меняем внешний вид бургера
-  menu.classList.toggle('active') // показываем/скрываем меню
+  burger.classList.toggle('active')
+  menu.classList.toggle('active')
 })
 
 const scrollTopBtn = document.querySelector('.scroll-top')
@@ -298,7 +293,6 @@ function renderCart() {
       }
     })
 
-    // Кнопка удалить
     li.querySelector('.remove-item').addEventListener('click', (e) => {
       e.stopPropagation()
       removeFromCart(item.id)
@@ -328,7 +322,6 @@ function openApartmentModalFromCart(item) {
   const modal = document.querySelector('#apartment-modal')
   openModal(modal)
 
-  // Заполняем поля
   modal.querySelector('.modal-title').textContent = item.title
   modal.querySelector('.modal-price').textContent = item.price
   modal.querySelector('.modal-location').innerHTML = item.location
@@ -356,7 +349,7 @@ const contactForm = document
 
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
-    e.preventDefault() // отменяем стандартную отправку
+    e.preventDefault()
 
     const formData = new FormData(contactForm)
     const data = Object.fromEntries(formData.entries())
@@ -374,3 +367,117 @@ if (contactForm) {
     }
   })
 }
+
+//locations
+// ===== Locations cards: открытие модалок с квартирами =====
+document.querySelectorAll('.locations__grid a').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    const cityName = btn.closest('.location-card').dataset.city
+    const modal = document.getElementById(`modal-${cityName}`)
+    if (!modal) return
+    openModal(modal)
+
+    const results = modal.querySelector('.search-results')
+    results.innerHTML = ''
+
+    const cards = document.querySelectorAll(
+      `.listings__grid .card[data-city="${cityName}"]`,
+    )
+    if (!cards.length) {
+      results.innerHTML = '<p>No properties found for this city.</p>'
+      return
+    }
+
+    cards.forEach((card) => {
+      // создаём мини-карточку
+      const miniCard = document.createElement('div')
+      miniCard.className = 'mini-card'
+      miniCard.innerHTML = `
+        <img src="${card.querySelector('img').src}" alt="${card.querySelector('.card__title').textContent}">
+        <div class="mini-card-info">
+          <h4>${card.querySelector('.card__title').textContent}</h4>
+          <span>${card.querySelector('.card__price').textContent}</span>
+        </div>
+      `
+      // кликаем — открываем полную карточку
+      miniCard.addEventListener('click', () => {
+        openApartmentModalFromCart(getCardData(card))
+      })
+
+      results.appendChild(miniCard)
+    })
+  })
+})
+
+//Blog
+document.addEventListener('DOMContentLoaded', () => {
+  const blogContent = [
+    {
+      title: 'The 9 Best Homes in New York',
+      text: 'Discover the top 9 homes in New York City. Each property offers unique architecture, modern amenities, and a perfect location.',
+    },
+    {
+      title: 'How to Easily Buy a Home with Realco',
+      text: 'Buying a home can be simple with Realco. Step-by-step instructions, financial tips, expert advice.',
+    },
+    {
+      title: 'Renting Houses – Complete Guide',
+      text: 'Learn everything about renting houses: location, contracts, rights.',
+    },
+  ]
+
+  const blogGrid = document.querySelector('.blog__grid')
+  const viewAllBtn = document.querySelector('.btn--outline')
+  const modal = document.getElementById('blog-modal')
+  const modalTitle = modal.querySelector('.modal-title')
+  const modalText = modal.querySelector('.modal-text')
+  const modalClose = modal.querySelector('.modal-close')
+
+  function openModal(title, text) {
+    modalTitle.textContent = title
+    modalText.textContent = text
+    modal.style.display = 'flex'
+    document.body.classList.add('modal-open')
+  }
+
+  function closeModal() {
+    modal.style.display = 'none'
+    document.body.classList.remove('modal-open')
+  }
+
+  // === ДЕЛЕГАЦИЯ ===
+  blogGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.post-card__link')
+    if (!btn) return // если клик не по кнопке, игнорируем
+    e.preventDefault() // блокируем скролл наверх
+
+    const card = btn.closest('.post-card')
+    const index = card.dataset.index
+    const article = blogContent[index]
+    openModal(article.title, article.text)
+  })
+
+  // === Индексация карточек ===
+  document.querySelectorAll('.post-card').forEach((card, i) => {
+    card.dataset.index = i
+  })
+
+  // === View all ===
+  viewAllBtn.addEventListener('click', (e) => {
+    e.preventDefault() // убираем скролл
+    const originalCards = Array.from(blogGrid.querySelectorAll('.post-card'))
+    for (let i = 0; i < 2; i++) {
+      const clone = originalCards[i].cloneNode(true)
+      clone.dataset.index = i // индекс клона
+      blogGrid.appendChild(clone)
+    }
+  })
+
+  // === Закрытие модалки ===
+  modalClose.addEventListener('click', closeModal)
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal()
+  })
+})
