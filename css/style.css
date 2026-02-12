@@ -1216,10 +1216,9 @@ a.btn-primary::after {
 .footer {
   background: #ffffff;
   padding: 80px 0;
-  /* Верхняя часть футера */
-  /* Логотип / бренд */
-  /* Навигационные колонки */
-  /* Подписка */
+  /* logo */
+  /* nav */
+  /* subscrib */
 }
 .footer__grid {
   display: grid;
@@ -1282,11 +1281,17 @@ a.btn-primary::after {
   border: 1px solid #dcdcdc;
   font-size: 14px;
 }
+.footer__subscribe .subscribe-form.error {
+  border-color: #e74c3c;
+}
+.footer__subscribe .subscribe-form.success {
+  border-color: #2ecc71;
+}
 .footer__subscribe .subscribe-form button {
   padding: 10px 20px;
   border-radius: 6px;
   border: none;
-  background-color: #d76b4b; /* цвет кнопки */
+  background-color: #cf6f49;
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
@@ -1298,6 +1303,11 @@ a.btn-primary::after {
   display: block;
   font-size: 12px;
   color: #8b8b8b;
+}
+
+.subscribe-message {
+  font-size: 13px;
+  margin-top: 8px;
 }
 
 .footer-bottom {
@@ -1333,7 +1343,7 @@ button.scroll-top {
   border-radius: 50%;
   border: none;
   background: #111;
-  color: #fff;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1353,7 +1363,7 @@ button.scroll-top.is-visible {
   top: 20px;
   right: 20px;
   background: #4caf50;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 6px;
   opacity: 0;
@@ -1364,6 +1374,62 @@ button.scroll-top.is-visible {
 
 .cart-toast.active {
   opacity: 1;
+}
+
+/* ===========================
+   404 PAGE
+=========================== */
+.page-404 {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  text-align: center;
+  font-family: inherit;
+}
+
+.error__content {
+  max-width: 500px;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.error__content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error__code {
+  font-size: 120px;
+  margin: 0;
+  color: #ff7b54;
+}
+
+.error__title {
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.error__text {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.error__actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-back {
+  background: none;
+  border: 1px solid currentColor;
+  cursor: pointer;
 }
 
 /*media*/
@@ -1474,6 +1540,19 @@ button.scroll-top.is-visible {
   .post-card__title {
     font-size: 22px;
     line-height: 30px;
+  }
+}
+@media (max-width: 1024px) {
+  .footer {
+    padding: 64px 0;
+  }
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+  .footer__subscribe {
+    grid-column: span 3;
+    max-width: 100%;
   }
 }
 @media (max-width: 992px) {
@@ -1660,6 +1739,18 @@ button.scroll-top.is-visible {
     align-self: flex-start;
   }
 }
+@media (max-width: 768px) {
+  .footer {
+    padding: 48px 0;
+  }
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .footer__subscribe, .footer__brand {
+    grid-column: span 2;
+  }
+}
 @media (max-width: 640px) {
   .reviews__title {
     font-size: 28px;
@@ -1746,31 +1837,5 @@ button.scroll-top.is-visible {
   .hero .hero__col--text .hero__title {
     font-size: 35px;
     line-height: 46px;
-  }
-}
-@media (max-width: 1024px) {
-  .footer {
-    padding: 64px 0;
-  }
-  .footer__grid {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 40px;
-  }
-  .footer__subscribe {
-    grid-column: span 3;
-    max-width: 100%;
-  }
-}
-/* Mobile */
-@media (max-width: 768px) {
-  .footer {
-    padding: 48px 0;
-  }
-  .footer__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-  .footer__subscribe, .footer__brand {
-    grid-column: span 2;
   }
 }/*# sourceMappingURL=style.css.map */

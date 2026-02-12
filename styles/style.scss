@@ -1,9 +1,3 @@
-// --------------------------------------
-// 🌐 MAIN STYLE FILE
-// Этот файл импортирует все partials
-// --------------------------------------
-
-// Импорт вспомогательных файлов
 @use 'variables' as *;
 @use 'mixins' as *;
 
@@ -208,44 +202,6 @@ a {
   }
 }
 
-// .search-form {
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-
-//   .search-toggle {
-//     background: none;
-//     border: none;
-//     cursor: pointer;
-//     font-size: 16px;
-//     display: flex;
-//     align-items: center;
-//     gap: 1rem;
-//   }
-
-//   .search-input {
-//     position: absolute;
-//     right: 0;
-//     width: 0;
-//     padding: 0.5rem 1rem;
-//     border: 1px solid $primary-color;
-//     border-radius: $border-radius;
-//     opacity: 0;
-//     transition:
-//       width 0.3s ease,
-//       opacity 0.3s ease;
-
-//     &:focus {
-//       outline: none;
-//     }
-//   }
-
-//   &.active .search-input {
-//     width: 200px;
-//     opacity: 1;
-//   }
-// }
-
 .header-buttons {
   position: relative;
   display: flex;
@@ -290,7 +246,6 @@ a {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      // background-color: darken($secondary-color, 10%);
       transform: translateY(-1px);
     }
 
@@ -388,8 +343,6 @@ a {
     list-style: none;
     padding: 0;
     margin: 0 0 1rem 0;
-    // flex-direction: column;
-    // justify-self: baseline;
   }
 
   li {
@@ -424,15 +377,11 @@ a {
     flex-shrink: 0;
   }
   &.modal-find {
-    // display: flex;
     flex-direction: column;
     gap: 16px;
     height: 100%;
-    // max-height: 180vh;
   }
   .search-results {
-    // display: flex;
-    // flex-direction: column;
     gap: 10px;
     margin-top: 10px;
     flex: 1;
@@ -450,7 +399,6 @@ body.modal-open {
 .modal.active,
 .modal-overlay.active {
   display: flex;
-  // height: 100%;
 }
 .modal.is-open {
   display: block;
@@ -691,7 +639,6 @@ body.modal-open {
     text-align: center;
     font-size: 0.9rem;
     color: $text-color;
-    // margin-bottom: 2rem;
   }
 
   &__list {
@@ -865,7 +812,7 @@ body.modal-open {
   padding: 20px;
 
   &::after {
-    content: '›'; // стрелка как в макете
+    content: '›';
     font-size: 1.2em;
     line-height: 1;
     transform: translateY(1px);
@@ -1374,7 +1321,6 @@ a.btn-primary::after {
   background: $light-color;
   padding: 80px 0;
 
-  /* Верхняя часть футера */
   &__grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr 1fr 1.6fr;
@@ -1382,7 +1328,7 @@ a.btn-primary::after {
     align-items: flex-start;
   }
 
-  /* Логотип / бренд */
+  /* logo */
   &__brand {
     display: flex;
     flex-direction: column;
@@ -1395,7 +1341,7 @@ a.btn-primary::after {
     }
   }
 
-  /* Навигационные колонки */
+  /* nav */
   &__nav {
     text-align: left;
 
@@ -1425,7 +1371,7 @@ a.btn-primary::after {
     }
   }
 
-  /* Подписка */
+  /* subscrib */
   &__subscribe {
     max-width: 360px;
 
@@ -1448,12 +1394,19 @@ a.btn-primary::after {
         border: 1px solid #dcdcdc;
         font-size: 14px;
       }
+      &.error {
+        border-color: #e74c3c;
+      }
+
+      &.success {
+        border-color: #2ecc71;
+      }
 
       button {
         padding: 10px 20px;
         border-radius: 6px;
         border: none;
-        background-color: #d76b4b; /* цвет кнопки */
+        background-color: $btn-color;
         color: $light-color;
         font-size: 14px;
         cursor: pointer;
@@ -1470,6 +1423,10 @@ a.btn-primary::after {
       color: #8b8b8b;
     }
   }
+}
+.subscribe-message {
+  font-size: 13px;
+  margin-top: 8px;
 }
 
 .footer-bottom {
@@ -1510,7 +1467,7 @@ button.scroll-top {
   border-radius: 50%;
   border: none;
   background: #111;
-  color: #fff;
+  color: $light-color;
 
   display: flex;
   align-items: center;
@@ -1534,7 +1491,7 @@ button.scroll-top {
   top: 20px;
   right: 20px;
   background: #4caf50;
-  color: #fff;
+  color: $light-color;
   padding: 10px 20px;
   border-radius: 6px;
   opacity: 0;
@@ -1546,7 +1503,63 @@ button.scroll-top {
 .cart-toast.active {
   opacity: 1;
 }
-//blog-modal
+
+/* ===========================
+   404 PAGE
+=========================== */
+
+.page-404 {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  text-align: center;
+  font-family: inherit;
+}
+
+.error__content {
+  max-width: 500px;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.error__content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error__code {
+  font-size: 120px;
+  margin: 0;
+  color: $secondary-color;
+}
+
+.error__title {
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.error__text {
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.error__actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-back {
+  background: none;
+  border: 1px solid currentColor;
+  cursor: pointer;
+}
 
 /*media*/
 @import 'responsive';

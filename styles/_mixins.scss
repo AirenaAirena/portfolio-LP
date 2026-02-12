@@ -1,16 +1,15 @@
 // --------------------------------------
 // 🧩 MIXINS
-// Это переиспользуемые куски кода
+
 // --------------------------------------
 @use 'variables' as *;
-// Центровка элементов по горизонтали и вертикали
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// Контейнер для центровки содержимого
 @mixin container {
   width: 100%;
   max-width: $max-width;
@@ -19,7 +18,6 @@
   box-sizing: border-box;
 }
 
-// Кнопка (универсальный миксин)
 @mixin button($bg: $primary-color, $color: #fff) {
   background-color: $bg;
   color: $color;
@@ -34,7 +32,6 @@
   }
 }
 
-// Адаптивная типографика
 @mixin fluid-font($min, $max) {
   font-size: clamp($min, 2vw, $max);
 }

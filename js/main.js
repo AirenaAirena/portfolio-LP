@@ -32,9 +32,6 @@ const overlay = document.querySelector('.modal-overlay')
 const closeButtons = document.querySelectorAll('.close-modal, .modal-close')
 
 function openModal(modal) {
-  // document.querySelectorAll('.modal.active').forEach((m) => {
-  //   m.classList.remove('active')
-  // })
   modal.classList.add('active')
   overlay.classList.add('active')
   document.body.classList.add('modal-open')
@@ -369,7 +366,7 @@ if (contactForm) {
 }
 
 //locations
-// ===== Locations cards: открытие модалок с квартирами =====
+
 document.querySelectorAll('.locations__grid a').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -391,7 +388,6 @@ document.querySelectorAll('.locations__grid a').forEach((btn) => {
     }
 
     cards.forEach((card) => {
-      // создаём мини-карточку
       const miniCard = document.createElement('div')
       miniCard.className = 'mini-card'
       miniCard.innerHTML = `
@@ -401,7 +397,7 @@ document.querySelectorAll('.locations__grid a').forEach((btn) => {
           <span>${card.querySelector('.card__price').textContent}</span>
         </div>
       `
-      // кликаем — открываем полную карточку
+
       miniCard.addEventListener('click', () => {
         openApartmentModalFromCart(getCardData(card))
       })
@@ -447,11 +443,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('modal-open')
   }
 
-  // === ДЕЛЕГАЦИЯ ===
   blogGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.post-card__link')
-    if (!btn) return // если клик не по кнопке, игнорируем
-    e.preventDefault() // блокируем скролл наверх
+    if (!btn) return
+    e.preventDefault()
 
     const card = btn.closest('.post-card')
     const index = card.dataset.index
@@ -459,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal(article.title, article.text)
   })
 
-  // === Индексация карточек ===
   document.querySelectorAll('.post-card').forEach((card, i) => {
     card.dataset.index = i
   })
@@ -475,9 +469,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  // === Закрытие модалки ===
   modalClose.addEventListener('click', closeModal)
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal()
+  })
+})
+// subscribe
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.subscribe-form')
+  const input = form.querySelector('input[type="email"]')
+  const button = form.querySelector('button')
+
+  const message = document.createElement('div')
+  message.className = 'subscribe-message'
+  form.after(message)
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const email = input.value.trim()
+
+    input.classList.remove('error', 'success')
+    message.textContent = ''
+
+    if (!email) {
+      input.classList.add('error')
+      message.textContent = 'Please enter your email.'
+      return
+    }
+
+    if (!validateEmail(email)) {
+      input.classList.add('error')
+      message.textContent = 'Invalid email format.'
+      return
+    }
+
+    button.disabled = true
+    button.textContent = 'Sending...'
+
+    setTimeout(() => {
+      button.disabled = false
+      button.textContent = 'Subscribe'
+
+      input.classList.add('success')
+      message.textContent = 'Thank you for subscribing!'
+      input.value = ''
+    }, 800)
   })
 })
