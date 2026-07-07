@@ -105,7 +105,7 @@ let sliderInterval = null
 document.querySelectorAll('.card').forEach((card) => {
   card.addEventListener('click', () => {
     openModal(apartmentModal)
-
+    apartmentModal.dataset.id = card.dataset.id
     clearInterval(sliderInterval)
     sliderIndex = 0
     track.innerHTML = ''
@@ -271,6 +271,7 @@ function getCardData(card) {
 }
 
 function renderCart() {
+  document.querySelector('.cart-count').textContent = cart.length
   cartItemsList.innerHTML = ''
   cart.forEach((item) => {
     const li = document.createElement('li')
