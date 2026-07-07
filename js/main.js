@@ -4,9 +4,9 @@ document.querySelectorAll('.menu__item--dropdown').forEach((item) => {
   const arrowIcon = item.querySelector('.arrow-icon')
 
   menuLinkProp.addEventListener('click', (e) => {
-    e.preventDefault() // чтобы ссылка не прыгала
+    e.preventDefault()
     dropdownMenu.classList.toggle('active')
-    arrowIcon.classList.toggle('rotate') // стрелка вверх/вниз
+    arrowIcon.classList.toggle('rotate')
   })
 })
 
@@ -156,7 +156,6 @@ document.querySelectorAll('.card').forEach((card) => {
 const findModal = document.querySelector('.modal-find')
 const findForm = findModal.querySelector('form')
 const findResults = findModal.querySelector('.search-results')
-// let findResults = findModal.querySelector('.search-results')
 
 findForm.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -352,7 +351,6 @@ if (contactForm) {
     const formData = new FormData(contactForm)
     const data = Object.fromEntries(formData.entries())
 
-    console.log('Forma Contact agent:', data)
     alert(`Thank, ${data.name}! you for your message.`)
 
     contactForm.reset()
@@ -461,11 +459,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === View all ===
   viewAllBtn.addEventListener('click', (e) => {
-    e.preventDefault() // убираем скролл
+    e.preventDefault()
     const originalCards = Array.from(blogGrid.querySelectorAll('.post-card'))
     for (let i = 0; i < 2; i++) {
       const clone = originalCards[i].cloneNode(true)
-      clone.dataset.index = i // индекс клона
+      clone.dataset.index = i
       blogGrid.appendChild(clone)
     }
   })
